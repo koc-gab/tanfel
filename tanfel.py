@@ -42,7 +42,7 @@ def osszegzes(beTanar, tanarok, oraszamok):
     return osszOraszam
 beTanar=input("Kérem egy tanár nevét: ")
 print(f"Heti összóraszám: {osszegzes(beTanar, tanarok, oraszamok)}")
-print("5. feladat")
+print("6. feladat")
 def eldontes(beOsztaly, beTantargy, tantargyak, osztalyok):
     i=0
     while i<len(tantargyak) and not(beTantargy==tantargyak[i] and beOsztaly.split(".")[0]==osztalyok[i].split(".")[0] and "x" in osztalyok[i]): 
@@ -54,7 +54,7 @@ if eldontes(beOsztaly, beTantargy, tantargyak, osztalyok):
     print("Csoportbontásban tanulják.")
 else:
     print("Nem csoportbontásban tanulják.")
-print("6. feladat")
+print("7. feladat")
 def megszamol(tanarok):
     tanarokEgyedi=[]
     for tanar in tanarok:
@@ -62,3 +62,13 @@ def megszamol(tanarok):
             tanarokEgyedi.append(tanar)
     return len(tanarokEgyedi)
 print(f"Az iskolában {megszamol(tanarok)} tanár tanít.")
+print("Házi feladat")
+def kiszuro(tantargyak):
+    tantargyakEgyedi=[]
+    for tantargy in tantargyak:
+        if tantargy not in tantargyakEgyedi:
+            tantargyakEgyedi.append(tantargy)
+    return tantargyakEgyedi
+with open("tantargyak", "w", encoding="UTF-8") as cf:
+    for sor in kiszuro(tantargyak):
+        cf.write(sor + "\n")
