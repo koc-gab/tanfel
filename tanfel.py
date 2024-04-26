@@ -55,13 +55,14 @@ if eldontes(beOsztaly, beTantargy, tantargyak, osztalyok):
 else:
     print("Nem csoportbontásban tanulják.")
 print("7. feladat")
-def megszamol(tanarok):
+def halmaz(tanarok):
     tanarokEgyedi=[]
     for tanar in tanarok:
         if tanar not in tanarokEgyedi:
             tanarokEgyedi.append(tanar)
-    return len(tanarokEgyedi)
-print(f"Az iskolában {megszamol(tanarok)} tanár tanít.")
+    return tanarokEgyedi
+tanarokEgyedi=halmaz(tanarok)
+print(f"Az iskolában {len(tanarokEgyedi)} tanár tanít.")
 print("Házi feladat")
 def kiszuro(tantargyak):
     tantargyakEgyedi=[]
@@ -72,3 +73,7 @@ def kiszuro(tantargyak):
 with open("tantargyak", "w", encoding="UTF-8") as cf:
     for sor in kiszuro(tantargyak):
         cf.write(sor + "\n")
+print("+ feladat")
+with open("tanarok.txt", "w", encoding="UTF-8") as fout:
+    for tanar in tanarokEgyedi:
+        print(tanar, file=fout)
